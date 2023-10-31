@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a596169345da4371ae1b79c89df98eb6" Name="Diagram1">
+        <EntityTypeShape EntityType="ESantiagoPaqueteriaModel.Entrega" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESantiagoPaqueteriaModel.EstatusEntrega" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESantiagoPaqueteriaModel.EstatusUnidad" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESantiagoPaqueteriaModel.Paquete" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESantiagoPaqueteriaModel.Repartidor" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESantiagoPaqueteriaModel.Rol" Width="1.5" PointX="7.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESantiagoPaqueteriaModel.UnidadEntrega" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESantiagoPaqueteriaModel.Usuario" Width="1.5" PointX="10" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="ESantiagoPaqueteriaModel.FK__Entrega__IdEstat__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="ESantiagoPaqueteriaModel.FK__Entrega__IdPaque__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="ESantiagoPaqueteriaModel.FK__Entrega__IdRepar__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="ESantiagoPaqueteriaModel.FK__UnidadEnt__IdEst__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="ESantiagoPaqueteriaModel.FK__Repartido__IdUni__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="ESantiagoPaqueteriaModel.FK__Usuario__IdRol__1367E606" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

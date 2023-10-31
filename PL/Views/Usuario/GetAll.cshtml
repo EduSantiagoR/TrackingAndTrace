@@ -1,0 +1,49 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Usuarios en sistema</h2>
+<hr />
+<a class="btn btn-success" href="@Url.Action("Form","Usuario")">Agregar usuario</a>
+<hr />
+<div class="container">
+    @if (Model.Usuarios != null)
+    {
+        if (Model.Usuarios.Count > 0)
+        {
+            <table class="table table-dark table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>Editar</th>
+                        <th>Username</th>
+                        <th>Rol</th>
+                        <th>Email</th>
+                        <th>Nombre</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(ML.Usuario usuario in Model.Usuarios)
+                    {
+                        <tr>
+                            <td><a class="btn btn-warning" href="@Url.Action("Form","Usuario", new {idUsuario = usuario.IdUsuario})"><i class="fa-solid fa-user-pen"></i></a></td>
+                            <td>@usuario.UserName</td>
+                            <td>@usuario.Rol.Tipo</td>
+                            <td>@usuario.Email</td>
+                            <td>@usuario.Nombre @usuario.ApellidoPaterno @usuario.ApellidoMaterno</td>
+                            <td><a class="btn btn-danger" href="@Url.Action("Delete","Usuario", new {idUsuario = usuario.IdUsuario})"><i class="fa-solid fa-user-slash"></i></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="alert alert-warning" role="alert">
+                No tienes usuarios registrados
+            </div>
+        }
+    }
+</div>

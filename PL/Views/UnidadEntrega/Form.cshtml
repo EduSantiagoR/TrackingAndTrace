@@ -1,0 +1,60 @@
+﻿@model ML.UnidadEntrega
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<h2 class="text-center">Formulario de unidad</h2>
+<hr />
+<div class="container">
+    @using (Html.BeginForm("Form", "UnidadEntrega", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(model => Model.IdUnidad)
+        <div class="row mb-3">
+            <div class="col col-4">
+                @Html.LabelFor(model => Model.NumeroPlaca)
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-circle-info"></i></span>
+                    @Html.TextBoxFor(model => Model.NumeroPlaca, new { @class = "form-control", @placeholder = "Número de placa" })
+                </div>
+            </div>
+            <div class="col col-4">
+                @Html.LabelFor(model => Model.Modelo)
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-truck"></i></span>
+                    @Html.TextBoxFor(model => Model.Modelo, new { @class = "form-control", @placeholder = "Modelo" })
+                </div>
+            </div>
+            <div class="col col-4">
+                @Html.LabelFor(model => Model.Marca)
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-truck"></i></span>
+                    @Html.TextBoxFor(model => Model.Marca, new { @class = "form-control", @placeholder = "Marca" })
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col col-4">
+                @Html.LabelFor(model => Model.YearFabricacion)
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-calendar"></i></span>
+                    @Html.TextBoxFor(model => Model.YearFabricacion, new { @class = "form-control", @placeholder = "Año de fabricación" })
+                </div>
+            </div>
+            <div class="col col-4">
+                @Html.LabelFor(model => Model.Estatus.Estatus)
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-list-check"></i></span>
+                    @Html.DropDownListFor(model => Model.Estatus.IdEstatus, new SelectList(Model.Estatus.EstatusList, "IdEstatus", "Estatus"), "Selecciona el estatus", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-danger" href="@Url.Action("GetAll","UnidadEntrega")">Volver</a>
+            <button class="btn btn-success" type="submit">Guardar</button>
+        </div>
+    }
+</div>
+

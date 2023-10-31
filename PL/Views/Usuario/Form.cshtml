@@ -1,0 +1,75 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Registro de usuarios</h2>
+<hr />
+<div class="container">
+    @using (Html.BeginForm("Form", "Usuario", FormMethod.Post, new { enctype = "multipart-form/data" }))
+    {
+        @Html.HiddenFor(model => Model.IdUsuario)
+    <div class="row mb-3">
+        <div class="col col-4">
+            @Html.LabelFor(model => Model.UserName)
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="fa-regular fa-user"></i></span>
+                @Html.TextBoxFor(model => Model.UserName, new { @class = "form-control", @placeholder = "Username" })
+                @*<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">*@
+            </div>
+        </div>
+        <div class="col col-4">
+            @Html.LabelFor(model => Model.Password)
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-key"></i></span>
+                @Html.TextBoxFor(model => Model.PasswordString, new { @class = "form-control", @placeholder = "Password" })
+            </div>
+        </div>
+        <div class="col col-4">
+            @Html.LabelFor(model => Model.Rol.IdRol)
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user-gear"></i></span>
+                @Html.DropDownListFor(model => Model.Rol.IdRol,new SelectList(Model.Rol.Roles,"IdRol","Tipo"),"Selecciona un rol", new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col col-4">
+            @Html.LabelFor(model => Model.Email)
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">@@</span>
+                @Html.TextBoxFor(model => Model.Email, new { @class = "form-control", @placeholder = "Email" })
+            </div>
+        </div>
+        <div class="col col-4">
+            @Html.LabelFor(model => Model.Nombre)
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="fa-regular fa-address-card"></i></span>
+                @Html.TextBoxFor(model => Model.Nombre, new { @class = "form-control", @placeholder = "Nombre" })
+            </div>
+        </div>
+        <div class="col col-4">
+            @Html.LabelFor(model => Model.ApellidoPaterno)
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="fa-regular fa-address-card"></i></span>
+                @Html.TextBoxFor(model => Model.ApellidoPaterno, new { @class = "form-control", @placeholder = "Apellido paterno" })
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col col-4">
+            @Html.LabelFor(model => Model.ApellidoMaterno)
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="fa-regular fa-address-card"></i></span>
+                @Html.TextBoxFor(model => Model.ApellidoMaterno, new { @class = "form-control", @placeholder = "Apellido materno" })
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <a class="btn btn-danger" href="@Url.Action("GetAll","Usuario")">Volver</a>
+        <button class="btn btn-success" type="submit">Guardar</button>
+    </div>
+    }
+</div>
+
